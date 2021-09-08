@@ -20,4 +20,4 @@ jobs:
     steps:
       - run: echo "Deploying ${{ github.event.client_payload.artifact }} to ${{ github.event.client_payload.environment }}...."
 
-      - run: echo "Deployment complete to subscription ${{secrets.AZ_SUBSCRIPTION_ID}} ${{jobs.deploy.environment}}"
+      - run: echo "Deployment complete to subscription ${{secrets.AZ_SUBSCRIPTION_ID}}"
