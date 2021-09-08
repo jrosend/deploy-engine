@@ -5,9 +5,7 @@ on:
 
   repository_dispatch:
     types:
-      - deploy-dev
-      - deploy-hlg
-      - deploy-prd
+      - dataops-deployment-aprroved
 
 jobs:
   deploy:
@@ -16,8 +14,11 @@ jobs:
         shell: bash
     runs-on: ubuntu-20.04
     environment: ${{ github.event.client_payload.environment }}
+    env:
+      artifactUrl: ${{ github.event.client_payload.artifact }}
+      environment: ${{ github.event.client_payload.environment }}
 
     steps:
-      - run: echo "Deploying ${{ github.event.client_payload.artifact }} to ${{ github.event.client_payload.environment }}...."
+      - run: echo "Deploying ${{ env.artifactUrl }} to ${{ env.environment }}...."
 
       - run: echo "Deployment complete to subscription ${{secrets.AZ_SUBSCRIPTION_ID}}"
