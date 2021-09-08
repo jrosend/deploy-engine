@@ -5,7 +5,7 @@ on:
 
   repository_dispatch:
     types:
-      - dataops-deployment-aprroved
+      - dataops-deployment-approved
 
 jobs:
   deploy:
