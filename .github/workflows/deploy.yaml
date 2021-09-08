@@ -1,0 +1,19 @@
+name: Deploy Package
+
+on:
+  workflow_dispatch:
+
+  repository_dispatch:
+    types:
+      - deploy-dev
+      - deploy-hlg
+      - deploy-prd
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - run: echo "Deploying...."
+
+      - run: echo "Deployment complete"
