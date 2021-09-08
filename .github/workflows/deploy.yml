@@ -12,8 +12,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
+    environment: ${{ github.event.client_payload.environment }}
 
     steps:
       - run: echo "Deploying ${{ github.event.client_payload.artifact }} to ${{ github.event.client_payload.environment }}...."
 
-      - run: echo "Deployment complete"
+      - run: echo "Deployment complete to subscription ${{secrets.AZ_SUBSCRIPTION_ID}}"
