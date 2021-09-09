@@ -2,14 +2,6 @@ name: Deploy Package
 
 on:
   workflow_dispatch:
-    inputs:
-      artifactUrl:
-        description: Url to the artifact to be deployed
-        required: true
-      environment: 
-        description: environment to witch deploy the artifact
-        required: true
-
       
   repository_dispatch:
     types:

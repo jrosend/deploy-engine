@@ -1,0 +1,27 @@
+name: Deploy Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      artifactUrl:
+        description: Url to the artifact to be deployed
+        required: true
+      environment: 
+        description: environment to witch deploy the artifact
+        required: true
+  
+jobs:
+  deploy:
+    defaults:
+      run:
+        shell: bash
+    runs-on: ubuntu-20.04
+    environment: ${{ github.event.inputs.environment }}
+    env:
+      artifactUrl: ${{ github.event.inputs.artifactUrl }}
+      environment: ${{ github.event.inputs.environment }}
+
+    steps:
+      - run: echo "Deploying ${{ env.artifactUrl }} to ${{ env.environment }}...."
+
+      - run: echo "Deployment complete to subscription ${{secrets.AZ_SUBSCRIPTION_ID}}"
