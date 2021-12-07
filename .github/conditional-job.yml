@@ -2,7 +2,6 @@ name: Conditional jobs
 
 on:
   push:
-    branches: [**]
 
 env:
   DEPLOY_CD: 'datafactory,infra,databricks,synapse'
