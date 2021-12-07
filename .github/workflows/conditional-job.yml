@@ -46,10 +46,10 @@ jobs:
 
     steps:
       - run: |
-            echo ${{needs.build-config.outputs.build-infra}}
-            echo ${{needs.build-config.outputs.build-datafactory}}
-            echo ${{needs.build-config.outputs.build-databricks}}
-            echo ${{needs.build-config.outputs.build-synapse}}
+            echo "Should build infra: ${{needs.build-config.outputs.build-infra}}"
+            echo "Should build datafactory: ${{needs.build-config.outputs.build-datafactory}}"
+            echo "Should build databricks: ${{needs.build-config.outputs.build-databricks}}"
+            echo "Should build synapse: ${{needs.build-config.outputs.build-synapse}}"
             
   # build-infra:
   #   runs-on: ubuntu-20.04
