@@ -7,7 +7,21 @@ env:
   DEPLOY_CD: 'datafactory,infra,databricks,synapse'
 
 jobs:
+  build-config:
+    runs-on: ubuntu-latest
+    #outputs:
+    #  build-infra: ${{steps.build-infra.outputs.build-infra}}
+    
+    steps:
+      - run: echo [[ "${{env.DEPLOY_CD}}" == *"infra"* ]]
+
+
   build-infra:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo ${{env.DEPLOY_CD}}
+      - run: echo "Building Infra"
+
+  build-databricks:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: echo "Building Databricks"
