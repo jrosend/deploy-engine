@@ -51,14 +51,18 @@ jobs:
             echo "Should build databricks: ${{needs.build-config.outputs.build-databricks}}"
             echo "Should build synapse: ${{needs.build-config.outputs.build-synapse}}"
             
-  # build-infra:
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - run: echo "Building Infra"
+  build-infra:
+    runs-on: ubuntu-20.04
+    needs: [build-config]
+    if: needs.build-config.outputs.build-infra == 'true'
+    steps:
+      - run: echo "Building Infra"
 
-  # build-databricks:
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - run: echo "Building Databricks"
+  build-databricks:
+    runs-on: ubuntu-20.04
+    needs: [build-config]
+    if: needs.build-config.outputs.build-databricks == 'true'
+    steps:
+      - run: echo "Building Databricks"
 
   
