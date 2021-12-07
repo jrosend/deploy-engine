@@ -10,4 +10,4 @@ jobs:
   build-infra:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo ${{DEPLOY_CD}}
+      - run: echo ${{env.DEPLOY_CD}}
