@@ -13,7 +13,10 @@ jobs:
     #  build-infra: ${{steps.build-infra.outputs.build-infra}}
     
     steps:
-      - run: echo [[ "${{env.DEPLOY_CD}}" == *"infra"* ]]
+      - run: |
+            if [[ "${{env.DEPLOY_CD}}" == *"infra"* ]]; then
+              echo "Should build infra"
+            fi
 
 
   build-infra:
