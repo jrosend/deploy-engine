@@ -9,16 +9,42 @@ env:
 jobs:
   build-config:
     runs-on: ubuntu-latest
-    #outputs:
-    #  build-infra: ${{steps.build-infra.outputs.build-infra}}
+    outputs:
+     build-infra: ${{steps.build-infra.outputs.build-infra}}
+     build-datafactory: ${{steps.build-infra.outputs.build-infra}}
+     build-databricks: ${{steps.build-infra.outputs.build-infra}}
+     build-synapse: ${{steps.build-infra.outputs.build-infra}}
     
     steps:
       - run: |
             if [[ "${{env.DEPLOY_CD}}" == *"infra"* ]]; then
-              echo "Should build infra"
+              echo "::set-output name=build-infra::true"
             fi
 
+            if [[ "${{env.DEPLOY_CD}}" == *"datafactory"* ]]; then
+              echo "::set-output name=build-infra::true"
+            fi
 
+            if [[ "${{env.DEPLOY_CD}}" == *"databricks"* ]]; then
+              echo "::set-output name=build-infra::true"
+            fi
+
+            if [[ "${{env.DEPLOY_CD}}" == *"synapse"* ]]; then
+              echo "::set-output name=build-infra::true"
+            fi
+
+  echo-configs:
+    runs-on: ubuntu-latest
+    needs:
+      - build-config
+      
+    steps:
+      - run: |
+            echo ${{jobs.build-config.outputs.build-infra}}
+            echo ${{jobs.build-config.outputs.build-datafactory}}
+            echo ${{jobs.build-config.outputs.build-databricks}}
+            echo ${{jobs.build-config.outputs.build-synapse}}
+            
   build-infra:
     runs-on: ubuntu-20.04
     steps:
@@ -28,3 +54,5 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: echo "Building Databricks"
+
+  
