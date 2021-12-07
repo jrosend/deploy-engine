@@ -1,0 +1,14 @@
+name: Conditional jobs
+
+on:
+  push:
+    branches: [**]
+
+env:
+  DEPLOY_CD: 'datafactory,infra,databricks,synapse'
+
+jobs:
+  build-infra:
+    runs-on: ubuntu-20.04
+    steps:
+      - echo "building infra"
