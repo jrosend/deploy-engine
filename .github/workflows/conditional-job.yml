@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  DEPLOY_CD: 'datafactory,databricks'
+  DEPLOY_CD: 'datafactory,databricks,infra'
 
 jobs:
   build-config:
