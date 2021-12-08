@@ -53,16 +53,42 @@ jobs:
             
   build-infra:
     runs-on: ubuntu-20.04
-    needs: [build-config]
+    needs: 
+      - build-config
     if: needs.build-config.outputs.build-infra == 'true'
     steps:
       - run: echo "Building Infra"
 
   build-databricks:
     runs-on: ubuntu-20.04
-    needs: [build-config]
+    needs: 
+      - build-config
     if: needs.build-config.outputs.build-databricks == 'true'
     steps:
       - run: echo "Building Databricks"
 
+  build-datafactory:
+    runs-on: ubuntu-20.04
+    if: needs.build-config.outputs.build-datafactory == 'true'
+    needs:
+      - build-config
+    steps:
+      - run: echo "Building datafactory"
+
+
+  build-package:
+    runs-on: ubuntu-latest
+    needs:
+      - build-config
+      - build-infra
+      - build-databricks
+      - build-datafactory
+
+    steps:
+      - if: needs.build-config.outputs.build-infra == 'true'
+        run: echo "Packing infra"
+      - if: needs.build-config.outputs.build-databricks == 'true'
+        run: echo "Packing databricks"
+      - if: needs.build-config.outputs.build-datafactory == 'true'
+        run: echo "Packing datafactory"
   
