@@ -1,5 +1,5 @@
 Write-Output "########################################"
 
 Write-Output "########################################"
-Write-Output ${Env.TARGET_ENV}
+Write-Output ${env:TARGET_ENV}
 Write-Output "########################################"
