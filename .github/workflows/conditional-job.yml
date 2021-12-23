@@ -39,17 +39,17 @@ jobs:
               echo "::set-output name=build-synapse::true"
             fi
 
-  echo-configs:
-    runs-on: ubuntu-latest
-    needs:
-      - build-config
+  # echo-configs:
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - build-config
 
-    steps:
-      - run: |
-            echo "Should build infra: ${{needs.build-config.outputs.build-infra}}"
-            echo "Should build datafactory: ${{needs.build-config.outputs.build-datafactory}}"
-            echo "Should build databricks: ${{needs.build-config.outputs.build-databricks}}"
-            echo "Should build synapse: ${{needs.build-config.outputs.build-synapse}}"
+  #   steps:
+  #     - run: |
+  #           echo "Should build infra: ${{needs.build-config.outputs.build-infra}}"
+  #           echo "Should build datafactory: ${{needs.build-config.outputs.build-datafactory}}"
+  #           echo "Should build databricks: ${{needs.build-config.outputs.build-databricks}}"
+  #           echo "Should build synapse: ${{needs.build-config.outputs.build-synapse}}"
             
   build-infra:
     runs-on: ubuntu-20.04

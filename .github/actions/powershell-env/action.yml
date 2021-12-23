@@ -1,0 +1,12 @@
+name: PowerShell Var
+description: Tests power shell env vars
+
+runs:
+  using: composite
+
+  steps:
+    - name: Passing var to script
+      shell: pwsh
+      run: ${{ github.action_path }}/pscript.ps1
+      env:
+        TARGET_ENV: dev

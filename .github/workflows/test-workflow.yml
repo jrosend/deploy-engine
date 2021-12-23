@@ -1,0 +1,12 @@
+name: Conditional jobs
+
+on:
+  push:
+
+jobs:
+    firstjob:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Run PowerShell Script
+        uses: ./.github/actions/powershell-env
