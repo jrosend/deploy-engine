@@ -3,6 +3,9 @@ name: Test Workflow
 on:
   push:
 
+env:
+  environment: prd
+
 jobs:
     firstjob:
       runs-on: ubuntu-latest

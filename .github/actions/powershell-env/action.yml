@@ -1,6 +1,11 @@
 name: PowerShell Var
 description: Tests power shell env vars
 
+inputs:
+  environment:
+    required: true
+    description: Running environment
+
 runs:
   using: composite
 
@@ -9,4 +14,5 @@ runs:
       shell: pwsh
       run: ${{ github.action_path }}/pscript.ps1
       env:
-        TARGET_ENV: dev
+        TARGET_ENV: ${{ inputs.environment }}
+        SHOULD_START_TRIGGERS: ${{inputs.environment == 'prd'}}
