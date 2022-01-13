@@ -1,7 +1,7 @@
 name: Conditional jobs
 
-on:
-  push:
+# on:
+#   push:
 
 env:
   DEPLOY_CD: 'datafactory,databricks,infra'
