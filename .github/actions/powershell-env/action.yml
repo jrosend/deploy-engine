@@ -16,3 +16,4 @@ runs:
       env:
         TARGET_ENV: ${{ inputs.environment }}
         SHOULD_START_TRIGGERS: ${{inputs.environment == 'prd'}}
+        ACTION_PATH: ${{github.action_path}}
