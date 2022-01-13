@@ -16,3 +16,5 @@ jobs:
 
       - name: Run PowerShell Script
         uses: ./.github/actions/powershell-env
+        with:
+          environment: ${{env.environment}}
