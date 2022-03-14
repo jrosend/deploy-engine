@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - name: test-script
-        uses: ./.github/actions/testvar
+        uses: .github/actions/testvar
