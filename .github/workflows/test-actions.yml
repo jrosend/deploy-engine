@@ -1,0 +1,11 @@
+on:
+  push: 
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: test-script
+        uses: ./.github/actions/testvar

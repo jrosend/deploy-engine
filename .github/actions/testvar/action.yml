@@ -1,0 +1,8 @@
+name: Test script params
+
+run:
+  using: composite
+  steps:
+    - id: job
+      shell: bash
+      run: run: ${{ github.action_path }}/script.sh
