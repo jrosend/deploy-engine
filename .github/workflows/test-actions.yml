@@ -8,4 +8,5 @@ jobs:
 
     steps:
       - name: test-script
-        uses: ./.github/actions/testvar
+        run: echo "Testando workflow"
+        #uses: ./.github/actions/testvar
