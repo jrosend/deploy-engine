@@ -5,4 +5,4 @@ run:
   steps:
     - id: job
       shell: bash
-      run: run: ${{ github.action_path }}/script.sh
+      run: ${{ github.action_path }}/script.sh
