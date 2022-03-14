@@ -1,6 +1,6 @@
 name: Test script params
 
-run:
+runs:
   using: composite
   steps:
     - id: job
