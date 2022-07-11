@@ -1,3 +1,5 @@
+name: Test repository Name
+
 on:
   push: 
 
@@ -10,6 +12,6 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: test-script
-        run: echo "$repo_name"
-        uses:
+        run: echo "${{env.repo_name}}"
+        env:
           repo_name: ${{ github.event.repository.name }}
