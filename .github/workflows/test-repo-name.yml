@@ -9,8 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: test-repo-name 
-
       - name: test-script
         run: echo "$repo_name"
         with:
