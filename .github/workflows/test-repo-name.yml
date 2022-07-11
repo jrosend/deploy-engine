@@ -11,5 +11,5 @@ jobs:
 
       - name: test-script
         run: echo "$repo_name"
-        with:
+        uses:
           repo_name: ${{ github.event.repository.name }}
