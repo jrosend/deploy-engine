@@ -5,13 +5,13 @@ on:
 
 
 jobs:
-  test:
+  test-repo-name:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
       - name: test-script
-        run: echo "${{env.repo_name}}"
+        run: echo "project key = viavarejo-internal_${{ github.event.repository.name }}"
         env:
           repo_name: ${{ github.event.repository.name }}
